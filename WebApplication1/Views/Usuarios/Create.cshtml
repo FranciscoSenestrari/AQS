@@ -1,0 +1,78 @@
+﻿@model WebApplication1.Models.Usuario
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="container text-center">
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3>Complete los campos a continuacion</h3>
+		</div>
+			<div class="panel-body">
+
+
+					@using (Html.BeginForm())
+					{
+						@Html.AntiForgeryToken()
+
+						<div class="form-horizontal">
+							<h4>Usuario</h4>
+							<hr />
+							@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+							<div class="form-group">
+								@Html.LabelFor(model => model.nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.nombre, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.nombre, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+							<div class="form-group">
+								@Html.LabelFor(model => model.apellido, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.apellido, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.apellido, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+							<div class="form-group">
+								@Html.LabelFor(model => model.fecha_nacimiento, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.fecha_nacimiento, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.fecha_nacimiento, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+							<div class="form-group">
+								@Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+								<div class="col-md-10">
+									@Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+									@Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-md-offset-2 col-md-10">
+									<input type="submit" value="Create" class="btn btn-warning" />
+								</div>
+							</div>
+						</div>
+					}
+			</div>
+			<div class="panel-footer">
+					<div>
+						@Html.ActionLink("Back to List", "Index", "Mensajes")
+					</div>
+			</div>
+		</div>
+	</div>
+
+
+	
+
+
+	@section Scripts {
+		@Scripts.Render("~/bundles/jqueryval")
+	}

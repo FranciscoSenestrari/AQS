@@ -1,0 +1,33 @@
+﻿@model WebApplication1.Models.Mensaje
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalles de mensaje</h2>
+
+<div>
+    <h4>Mensaje de :@Html.DisplayFor(model => model.Usuario.nombre) </h4> 
+    <hr />
+    <dl class="dl-horizontal">
+     
+        <dt>
+            Titulo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titulo)
+        </dd>
+
+        <dt>
+            Mensaje:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mensaje1)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
